@@ -1,6 +1,6 @@
 # Pricing methodology
 
-## Historical-first value
+## Historical first value
 
 When accepted sold evidence exists, the base value is a recency and volume weighted historical sold price. The recency half-life is 12 months.
 
@@ -17,7 +17,7 @@ TMV = Base
     x (1 + 0.05 x (demand - 0.5))
 ```
 
-- Trend is the sold-price slope relative to historical value and is capped at plus or minus 10%.
+- Trend is the sold price slope relative to historical value and is capped at plus or minus 10%.
 - Scarcity compares active supply with sold volume within caliber peers.
 - Demand ranks sold velocity within caliber peers.
 
@@ -25,7 +25,7 @@ TMV = Base
 
 | Parameter | Classification | Public interpretation |
 |---|---|---|
-| 0.79 ask adjustment | Implemented parameter, retrospectively benchmarked | Best of 0.79, 0.90 and 1.00 on the current same-snapshot comparison, but not independently validated |
+| 0.79 ask adjustment | Implemented parameter, retrospectively benchmarked | Best of 0.79, 0.90 and 1.00 on the current same snapshot comparison, but not independently validated |
 | 12-month half-life | Business rule | Gives more influence to recent sold evidence |
 | Trend weight 1.0 | Implemented scaling rule | Applies the measured and capped trend directly |
 | Trend cap 10% | Guardrail | Prevents sparse trends from dominating price |
@@ -46,7 +46,7 @@ The model did not beat the simple baseline on MAE in this retrospective check. T
 
 For 236 items containing both historical and active signals, the median historical to active ratio was 0.786. The 0.79 active ask adjustment is therefore a retrospectively calibrated project parameter supported within the audited snapshot, not an independently validated universal market discount. Active only items have no accepted realized sale outcome in the snapshot and remain unvalidated as a separate segment.
 
-Percentage errors are secondary because very low-price parts make them unstable.
+Percentage errors are secondary because very low price parts make them unstable.
 
 ## Bounds and confidence
 

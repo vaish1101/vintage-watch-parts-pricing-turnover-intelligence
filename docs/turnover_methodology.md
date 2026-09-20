@@ -1,6 +1,6 @@
 # Turnover methodology
 
-Turnover estimates selling velocity from sold counts and dates. It is not a price-elasticity model and it does not promise an exact sale date.
+Turnover estimates selling velocity from sold counts and dates. It is not a price elasticity model and it does not promise an exact sale date.
 
 ## Fallback hierarchy
 
@@ -15,7 +15,7 @@ Each fallback broadens the evidence pool and lowers specificity. The dashboard k
 
 ## Exponential hazard
 
-A recency-weighted monthly hazard is derived from sold volume. The dashboard stores:
+A recency weighted monthly hazard is derived from sold volume. The dashboard stores:
 
 - median days to sale;
 - probability of sale within 30 days;

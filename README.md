@@ -1,6 +1,6 @@
 # Vintage Watch Parts Pricing & Turnover Intelligence
 
-An evidence-gated analytics product that turns sparse marketplace observations into explainable price recommendations, uncertainty ranges and directional selling horizons.
+An evidence governed analytics product that turns sparse marketplace observations into explainable price recommendations, uncertainty ranges and directional selling horizons.
 
 ![Portfolio dashboard](assets/screenshots/portfolio-overview.png)
 
@@ -10,15 +10,15 @@ An evidence-gated analytics product that turns sparse marketplace observations i
 
 ## Audited private project snapshot
 
-These privacy safe aggregates were re-queried from the authoritative private dashboard contract. They are not counts from the synthetic demo.
+These privacy safe aggregates were queried again from the authoritative private dashboard contract. They are not counts from the synthetic demo.
 
 | Outcome | Audited value |
 |---|---:|
-| Eligible positive-stock items | 728 |
+| Eligible positive stock items | 728 |
 | Physical stock units | 2,935 |
 | Supported price recommendations | 575 |
-| Explicit no-recommendation outcomes | 153 |
-| Historical-supported recommendations | 239 |
+| Explicit no recommendation outcomes | 153 |
+| Historical supported recommendations | 239 |
 | Active only recommendations | 336 |
 | Aggregate recommended portfolio value | EUR 186,234.91 |
 
@@ -51,7 +51,7 @@ Sources
         -> DuckDB analytical layers
         -> Evidence retrieval and validation
         -> Pricing and turnover intelligence
-        -> One-row-per-item dashboard contract
+        -> One dashboard row per eligible item
         -> Client decision support dashboard
 ```
 
@@ -74,7 +74,7 @@ The repaired retrospective evaluation contains 975 leave one evidence out observ
 Turnover follows a transparent fallback hierarchy:
 
 1. direct item hazard;
-2. brand-caliber comparable cohort;
+2. brand and caliber comparable cohort;
 3. broader portfolio prior;
 4. insufficient sold evidence.
 
@@ -86,7 +86,7 @@ The output includes median selling horizon, 30-day and 90-day probabilities, met
 
 Retrieval is broad, but evidence acceptance is conservative. Brand, part number, caliber, component type, contradiction terms and stable listing identity are evaluated deterministically.
 
-Development-set verification reproduced 211 reviewed candidates: 105 true matches, 87 false matches and 19 ambiguous. At score 0.95, 74 true and 2 false binary-labelled candidates passed, equal to 97.4% precision. This is not independent test-set accuracy and no ML model is claimed.
+In a 211 candidate human reviewed development set, the score 0.95 verification tier selected 74 true and 2 false matches across binary labelled cases, equal to 97.4% precision. This is not independent test set accuracy and no ML model is claimed.
 
 ## Public demo
 
@@ -110,7 +110,7 @@ The views below reproduce the operational interface design with a fully syntheti
 
 ![Sanitized operational inventory interface](assets/screenshots/production/production-inventory-pricing.png)
 
-### Item-level pricing and turnover trace
+### Item level pricing and turnover trace
 
 ![Sanitized operational item-detail interface](assets/screenshots/production/production-item-detail.png)
 
@@ -124,7 +124,7 @@ The matching verification aggregate and repaired pricing evaluation are stored i
 
 Raw, staging and client facing grains remain separate in the private design. Stable evidence identities prevent repeated retrieval from inflating comparable counts. Current outputs are scoped to current eligible inventory. The public dataset is generated from fabricated identities rather than anonymized client rows.
 
-[Read the data-quality notes](docs/data_quality.md)
+[Read the data quality notes](docs/data_quality.md)
 
 ## Technology stack
 
@@ -138,7 +138,7 @@ Raw, staging and client facing grains remain separate in the private design. Sta
 ## Limitations
 
 - Active only recommendations do not yet have independent realized sale outcome validation.
-- The 0.79 adjustment is supported by retrospective same-snapshot concordance, not an independent holdout.
+- The 0.79 adjustment is supported by retrospective same snapshot concordance, not an independent holdout.
 - Scarcity and demand weights remain disclosed parameters rather than independently validated causal effects.
 - Historical aggregate rows and individual sold records have different source grains.
 - Turnover assumes a directional exponential hazard and cannot promise an exact sale date.
@@ -146,7 +146,7 @@ Raw, staging and client facing grains remain separate in the private design. Sta
 
 ## Reproduction
 
-The sample pipeline is deterministic, offline and credential-free. See [reproduction instructions](docs/reproduction.md).
+The sample pipeline is deterministic, offline and credential free. See [reproduction instructions](docs/reproduction.md).
 
 ## Data and privacy
 
