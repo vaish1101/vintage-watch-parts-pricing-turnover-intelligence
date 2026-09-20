@@ -4,7 +4,7 @@ An evidence governed analytics product that turns sparse marketplace observation
 
 ![Portfolio dashboard](assets/screenshots/portfolio-overview.png)
 
-[Live Dashboard](https://vaish1101.github.io/vintage-watch-parts-pricing-turnover-intelligence/) | [Architecture](docs/architecture.md) | [Methodology](docs/methodology.md) | [Reproduction](docs/reproduction.md)
+[View Live Dashboard](https://vaish1101.github.io/vintage-watch-parts-pricing-turnover-intelligence/#portfolio) | [Architecture](docs/architecture.md) | [Methodology](docs/methodology.md) | [Reproduction](docs/reproduction.md)
 
 > **Public synthetic demo:** The dashboard and sample pipeline in this repository use intentionally fabricated inventory and evidence. Private client inventory, raw marketplace records, credentials and the operational database are not published.
 
@@ -44,17 +44,6 @@ The product supports two decisions for every inventory item:
 
 Built an end to end ETL and analytics pipeline that ingests client inventory and marketplace evidence, cleans and validates sparse product data, stores governed analytical layers in DuckDB, and produces explainable pricing recommendations and turnover estimates through a decision support dashboard.
 
-```text
-Sources
-        -> Extract and ingest
-        -> Transform and data quality
-        -> DuckDB analytical layers
-        -> Evidence retrieval and validation
-        -> Pricing and turnover intelligence
-        -> One dashboard row per eligible item
-        -> Client decision support dashboard
-```
-
 ## System architecture
 
 ![System architecture](assets/architecture/system_architecture.svg)
@@ -65,7 +54,7 @@ The private operational product uses Python, SQL and DuckDB. The public portfoli
 
 Accepted sold evidence produces a recency and volume weighted historical value. If sold evidence is absent, the system uses the median accepted active ask with a 0.79 adjustment. Bounded trend, scarcity and demand terms provide controlled context. Confidence bands widen as evidence weakens.
 
-The repaired retrospective evaluation contains 975 leave one evidence out observations. The model produced EUR 83.50 MAE and EUR 34.17 median absolute error, versus EUR 82.88 and EUR 33.32 for a simple baseline. The result does not establish predictive superiority and is disclosed as a limitation.
+Retrospective evaluation did not show absolute error improvement over a simple baseline, so the system is positioned around evidence quality, traceability and uncertainty rather than predictive superiority.
 
 [Read the pricing methodology](docs/pricing_methodology.md)
 
@@ -98,9 +87,7 @@ The read only dashboard includes portfolio coverage, inventory filters, recommen
 
 ## Private operational dashboard
 
-The public demo uses synthetic data and is read only. The private operational dashboard supported live eBay retrieval, DuckDB backed analytics, inventory updates, pipeline execution and item level evidence tracing. The interface screenshots below use synthetic fixtures so no client or marketplace data is exposed. The private dashboard is not publicly accessible.
-
-The views below reproduce the operational interface design with a fully synthetic screenshot fixture. No private database row, marketplace title, seller identity, listing ID, URL or client identifier was rendered or exported.
+The private operational dashboard supported live eBay retrieval, DuckDB backed analytics, inventory updates, pipeline execution and item level evidence tracing. The screenshots below reproduce that interface with synthetic fixtures; no client or marketplace data is exposed, and the private system is not publicly accessible.
 
 ### Portfolio and turnover workflow
 
@@ -114,12 +101,6 @@ The views below reproduce the operational interface design with a fully syntheti
 
 ![Sanitized operational item-detail interface](assets/screenshots/production/production-item-detail.png)
 
-## Validation
-
-Public validation covers normalization, identifier preservation, duplicate evidence handling, contradiction rejection, matching confidence, historical first pricing, active only fallback, bounded trend, price ranges, abstention, turnover hierarchy, probability bounds, contract grain, synthetic schema and deterministic generation.
-
-The matching verification aggregate and repaired pricing evaluation are stored in [`evidence/validation_summary.json`](evidence/validation_summary.json).
-
 ## Data quality
 
 Raw, staging and client facing grains remain separate in the private design. Stable evidence identities prevent repeated retrieval from inflating comparable counts. Current outputs are scoped to current eligible inventory. The public dataset is generated from fabricated identities rather than anonymized client rows.
@@ -129,20 +110,17 @@ Raw, staging and client facing grains remain separate in the private design. Sta
 ## Technology stack
 
 - Python and SQL
-- DuckDB in the private operational architecture
-- HTML, CSS and vanilla JavaScript
-- Chart.js
+- DuckDB
+- Static web dashboard
 - pytest
-- GitHub Actions and GitHub Pages
+- GitHub Actions
+- GitHub Pages
 
 ## Limitations
 
-- Active only recommendations do not yet have independent realized sale outcome validation.
-- The 0.79 adjustment is supported by retrospective same snapshot concordance, not an independent holdout.
-- Scarcity and demand weights remain disclosed parameters rather than independently validated causal effects.
-- Historical aggregate rows and individual sold records have different source grains.
-- Turnover assumes a directional exponential hazard and cannot promise an exact sale date.
-- The public dashboard is a frozen synthetic demonstration, not a live market feed.
+- Active only pricing and the 0.79 adjustment are supported retrospectively, not through an independent holdout.
+- Turnover is a directional selling horizon estimate, not a guaranteed sale date.
+- The public dashboard uses synthetic frozen data; the operational client system remains private.
 
 ## Reproduction
 
