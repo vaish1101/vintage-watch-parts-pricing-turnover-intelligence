@@ -1,0 +1,124 @@
+{
+  "matching_validation": {
+    "at_or_above_threshold": {
+      "AMBIGUOUS": 10,
+      "FALSE_MATCH": 2,
+      "TRUE_MATCH": 74
+    },
+    "binary_labelled_rows": 192,
+    "binary_precision_pct": 97.4,
+    "evaluation_type": "development-set verification",
+    "labels": {
+      "AMBIGUOUS": 19,
+      "FALSE_MATCH": 87,
+      "TRUE_MATCH": 105
+    },
+    "note": "Aggregate metrics only. This is not independent test-set accuracy and not an ML model metric.",
+    "reviewed_candidates": 211,
+    "threshold": 0.95
+  },
+  "pricing_evaluation": {
+    "active_ask_to_historical_concordance": {
+      "factor_metrics": {
+        "0.79": {
+          "hit_within_20_pct": 47.5,
+          "mae_eur": 38.73,
+          "median_absolute_error_eur": 11.52,
+          "median_ape_pct": 21.1,
+          "n": 236
+        },
+        "0.9": {
+          "hit_within_20_pct": 39.0,
+          "mae_eur": 42.76,
+          "median_absolute_error_eur": 13.91,
+          "median_ape_pct": 27.4,
+          "n": 236
+        },
+        "1.0": {
+          "hit_within_20_pct": 30.9,
+          "mae_eur": 48.78,
+          "median_absolute_error_eur": 19.46,
+          "median_ape_pct": 32.3,
+          "n": 236
+        }
+      },
+      "items_with_both_signals": 236,
+      "limitation": "Retrospective same-snapshot concordance, not an independent out-of-sample validation of active-only outcomes.",
+      "median_historical_to_active_ratio": 0.786
+    },
+    "active_only_validation": {
+      "reason": "Items classified active-only have no accepted realized sold evidence in this snapshot.",
+      "status": "not_outcome_validated"
+    },
+    "evaluation_type": "retrospective development-snapshot evaluation",
+    "evidence_path": "AUTO_CONFIRMED and HIGH_CONFIDENCE classifications; unique active listing identity",
+    "leave_one_evidence_out": {
+      "active_fallback_after_holdout": {
+        "hit_within_20_pct": 49.1,
+        "mae_eur": 41.12,
+        "median_absolute_error_eur": 11.83,
+        "median_ape_pct": 20.2,
+        "n": 116
+      },
+      "all": {
+        "hit_within_20_pct": 32.7,
+        "mae_eur": 83.5,
+        "median_absolute_error_eur": 34.17,
+        "median_ape_pct": 33.8,
+        "n": 975
+      },
+      "remaining_historical": {
+        "hit_within_20_pct": 30.5,
+        "mae_eur": 89.23,
+        "median_absolute_error_eur": 40.33,
+        "median_ape_pct": 37.5,
+        "n": 859
+      },
+      "simple_baseline": {
+        "hit_within_20_pct": 31.1,
+        "mae_eur": 82.88,
+        "median_absolute_error_eur": 33.32,
+        "median_ape_pct": 35.3,
+        "n": 975
+      },
+      "vcp_aggregate_rows_are_evaluated_as_aggregate_average_observations": true
+    },
+    "parameters": {
+      "ask_to_sold_0_79": "implemented parameter; retrospectively benchmarked, not independently validated",
+      "demand_weight_0_05": "implemented initial business parameter; explicitly not backtested",
+      "recency_halflife_12_months": "implemented business rule",
+      "scarcity_weight_0_10": "implemented parameter; no reproducible independent calibration artifact found",
+      "trend_cap_plus_minus_0_10": "implemented guardrail/business rule",
+      "trend_weight_1_0": "implemented scaling parameter and business rule"
+    },
+    "percentage_metric_note": "Median APE is secondary because very low-price parts make percentage error unstable; MAE and median absolute error are primary.",
+    "reference_date": "2026-07-13"
+  },
+  "private_snapshot": {
+    "active_only_recommendations": 336,
+    "aggregate_recommended_portfolio_value_eur": 186234.91,
+    "eligible_positive_stock_items": 728,
+    "generated_at": "2026-08-11 12:32:21.061049",
+    "historical_supported_recommendations": 239,
+    "label": "Audited private project snapshot",
+    "no_recommendation_outcomes": 153,
+    "stock_units": 2935,
+    "supported_pricing_recommendations": 575
+  },
+  "stale_state": {
+    "calculation_scope": "Current pricing joins accepted evidence to current staging_inventory and the final contract is rebuilt from current eligible staging rows, so these stale rows are excluded from current dashboard calculations.",
+    "cause": "Inventory row identities changed across ingestion/cleaning snapshots while append-only decision and summary records retained older inventory_uid values.",
+    "dashboard_contract_rows": 728,
+    "dashboard_contract_unique_ids": 728,
+    "inventory_match_summary_orphans": 2,
+    "inventory_match_summary_rows": 730,
+    "inventory_match_summary_unique_ids": 730,
+    "orphan_match_decisions": 7204,
+    "orphan_match_decisions_by_status": {
+      "INSUFFICIENT_EVIDENCE": 1481,
+      "LOW_CONFIDENCE_CANDIDATE": 5707,
+      "REVIEW_REQUIRED": 16
+    },
+    "recommended_private_fix": "Add snapshot or upload_batch scoping to operational decision/summary tables and retire stale summaries during a controlled maintenance migration; do not blindly delete historical decisions."
+  }
+}

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title desc">
+  <title id="title">Pricing and evidence methodology</title>
+  <desc id="desc">Candidate retrieval, deterministic validation, historical first pricing, active fallback, bounded adjustments, confidence and abstention.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#17211d" flood-opacity=".09"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#78827c"/></marker>
+    <style>
+      .h{font:700 30px Arial,sans-serif;fill:#1e2421}.s{font:400 15px Arial,sans-serif;fill:#68736d}.step{font:700 10px Arial,sans-serif;letter-spacing:1.2px;fill:#68736d}.card{fill:#fff;stroke-width:1.5;filter:url(#shadow)}.retrieval{stroke:#3e83ad}.gate{stroke:#c05b72}.history{stroke:#3d9a7d}.active{stroke:#bd8b32}.adjust{stroke:#7968bd}.output{stroke:#287554}.reject{stroke:#b9b9b4}.t{font:700 14px Arial,sans-serif;fill:#202623}.c{font:400 12px Arial,sans-serif;fill:#6b746f}.a{fill:none;stroke:#78827c;stroke-width:2;marker-end:url(#arrow)}.dash{fill:none;stroke:#9da6a1;stroke-width:1.5;stroke-dasharray:6 6;marker-end:url(#arrow)}.pill{font:700 10px Arial,sans-serif;letter-spacing:.6px}
+    </style>
+  </defs>
+  <rect width="1600" height="560" fill="#f3f1ec"/>
+  <text x="56" y="54" class="h">Pricing and evidence methodology</text>
+  <text x="56" y="82" class="s">Retrieval maximizes coverage. Deterministic evidence gates decide what may influence valuation.</text>
+
+  <text x="58" y="137" class="step">1 · RETRIEVE</text><text x="328" y="137" class="step">2 · VALIDATE</text><text x="650" y="137" class="step">3 · SELECT BASE</text><text x="1020" y="137" class="step">4 · ADJUST + GOVERN</text><text x="1340" y="137" class="step">5 · DECIDE</text>
+
+  <rect x="54" y="162" width="220" height="130" rx="10" class="card retrieval"/>
+  <rect x="72" y="180" width="70" height="24" rx="12" fill="#e4f0f7"/><text x="107" y="196" text-anchor="middle" class="pill" fill="#2d6f95">TIERED</text>
+  <text x="74" y="228" class="t">Candidate retrieval</text><text x="74" y="251" class="c">Exact identity search</text><text x="74" y="270" class="c">Controlled relaxation</text>
+
+  <path d="M274 227H320" class="a"/>
+  <rect x="320" y="162" width="270" height="130" rx="10" class="card gate"/>
+  <rect x="338" y="180" width="78" height="24" rx="12" fill="#f9e8ec"/><text x="377" y="196" text-anchor="middle" class="pill" fill="#9d3f56">STRICT</text>
+  <text x="340" y="228" class="t">Identity + quality gates</text><text x="340" y="251" class="c">Brand, part, caliber, component</text><text x="340" y="270" class="c">Contradictions and duplicate identity</text>
+
+  <path d="M590 227H640" class="a"/>
+  <rect x="640" y="142" width="300" height="88" rx="10" class="card history"/>
+  <text x="660" y="174" class="t">Accepted historical sales</text><text x="660" y="197" class="c">Recency and volume weighted value</text><text x="893" y="174" text-anchor="end" class="pill" fill="#287554">FIRST</text>
+  <rect x="640" y="258" width="300" height="88" rx="10" class="card active"/>
+  <text x="660" y="290" class="t">Accepted active asks</text><text x="660" y="313" class="c">Median ask × 0.79 fallback</text><text x="913" y="332" text-anchor="end" class="pill" fill="#9b6d19">IF NO SOLD EVIDENCE</text>
+  <path d="M790 230V258" class="dash"/>
+
+  <path d="M940 186H986V227H1014" class="a"/><path d="M940 302H986V227H1014" class="a"/>
+  <rect x="1014" y="162" width="270" height="130" rx="10" class="card adjust"/>
+  <text x="1034" y="198" class="t">Bounded market context</text><text x="1034" y="222" class="c">Trend cap ±10%</text><text x="1034" y="241" class="c">Scarcity weight 0.10</text><text x="1034" y="260" class="c">Demand weight 0.05</text><text x="1034" y="279" class="c">Range + evidence confidence</text>
+
+  <path d="M1284 227H1332" class="a"/>
+  <rect x="1332" y="142" width="220" height="88" rx="10" class="card output"/>
+  <text x="1352" y="176" class="t">Recommendation</text><text x="1352" y="199" class="c">Price, range, confidence</text>
+  <rect x="1332" y="258" width="220" height="88" rx="10" class="card reject"/>
+  <text x="1352" y="292" class="t">Explicit abstention</text><text x="1352" y="315" class="c">Reason retained in contract</text>
+
+  <path d="M455 292V410H1332V346" class="dash"/>
+  <rect x="322" y="392" width="345" height="82" rx="10" fill="#fff" stroke="#d8ddd9"/>
+  <text x="344" y="423" class="t">Rejected or insufficient evidence</text><text x="344" y="447" class="c">Never enters TMV. The system does not substitute a portfolio average.</text>
+  <path d="M455 292V392" class="dash"/>
+
+  <rect x="1014" y="392" width="538" height="82" rx="10" fill="#eef4f1" stroke="#cfe0d7"/>
+  <text x="1038" y="421" class="t">Governed dashboard contract</text><text x="1038" y="445" class="c">One final decision per item with basis, evidence counts, model version and calculation timestamp.</text>
+  <path d="M1442 346V392" class="a"/>
+
+  <text x="56" y="526" class="s">Key principle: search broadly, accept conservatively, and abstain when direct evidence is not trustworthy.</text>
+</svg>

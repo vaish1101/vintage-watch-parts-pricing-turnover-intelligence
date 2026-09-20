@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Synthetic public demonstration of evidence based vintage watch part pricing and turnover intelligence.">
+  <title>Vintage Watch Parts Pricing &amp; Turnover Intelligence</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Franklin:wght@600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-lockup" href="#portfolio" aria-label="Portfolio overview">
+      <span class="brand-mark">V</span>
+      <span><strong>Vintage Watch Parts</strong><small>Pricing &amp; Turnover Intelligence</small></span>
+    </a>
+    <nav aria-label="Dashboard views">
+      <a href="#portfolio" data-nav="portfolio">Portfolio</a>
+      <a href="#inventory" data-nav="inventory">Inventory</a>
+    </nav>
+    <div class="freshness" id="header-freshness">Loading snapshot</div>
+  </header>
+  <div class="demo-notice" id="demo-notice"><span class="notice-dot"></span><span>Synthetic portfolio demo. Production data remains private.</span></div>
+  <main id="app" aria-live="polite">
+    <section class="loading-state"><span class="loader"></span><p>Loading the synthetic pricing contract...</p></section>
+  </main>
+  <footer><span>Vintage Watch Parts Pricing &amp; Turnover Intelligence</span><span>Read-only portfolio edition</span></footer>
+</body>
+</html>
